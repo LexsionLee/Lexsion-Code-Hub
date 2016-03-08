@@ -1,0 +1,342 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        02/26/2016  09:54:09  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\main.obj, .\Objects\EEPROM24C.obj TO .\Objects\24CXX PRINT 
+>> (.\Listings\24CXX.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\main.obj (MAIN)
+  .\Objects\EEPROM24C.obj (EEPROM24C)
+
+
+LINK MAP OF MODULE:  .\Objects\24CXX (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         _DATA_GROUP_
+            IDATA   0009H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0049H     UNIT         ?PR?_I2C_SENDBYTE?EEPROM24C
+            CODE    004CH     0024H     UNIT         ?PR?I2C_RECEIVEBYTE?EEPROM24C
+            CODE    0070H     0011H     UNIT         ?PR?I2C_STOP?EEPROM24C
+            CODE    0081H     000FH     UNIT         ?PR?I2C_START?EEPROM24C
+            CODE    0090H     000EH     UNIT         ?PR?_I2C_BYTEWRITE?EEPROM24C
+            CODE    009EH     000DH     UNIT         ?PR?I2C_RESPON?EEPROM24C
+            CODE    00ABH     000DH     UNIT         ?PR?_I2C_BYTEREAD?EEPROM24C
+            CODE    00B8H     000CH     UNIT         ?C_C51STARTUP
+            CODE    00C4H     000BH     UNIT         ?PR?I2C_DELAY5US?EEPROM24C
+            CODE    00CFH     0009H     UNIT         ?PR?DELAY10MS?EEPROM24C
+            CODE    00D8H     0008H     UNIT         ?PR?_I2C_IMBYTEREAD?EEPROM24C
+            CODE    00E0H     0001H     UNIT         ?PR?MAIN?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\24CXX (?C_STARTUP)
+
+
+SEGMENT                                 DATA_GROUP 
+  +--> CALLED SEGMENT                 START    LENGTH
+-----------------------------------------------------
+?C_C51STARTUP                         -----    -----
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                         0008H    0001H
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\24CXX (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/26/2016  09:54:09  PAGE 2
+
+
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:00B8H         SEGMENT       ?C_C51STARTUP
+  I:0009H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:00BBH         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:00B8H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:00B8H         LINE#         133
+  C:00BAH         LINE#         134
+  C:00BBH         LINE#         135
+  C:00BCH         LINE#         136
+  C:00BEH         LINE#         185
+  C:00C1H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:00E0H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        a
+  -------         ENDDO         
+  C:00E0H         LINE#         4
+  C:00E0H         LINE#         5
+  C:00E0H         LINE#         7
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/26/2016  09:54:09  PAGE 3
+
+
+
+  -------         MODULE        EEPROM24C
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  B:00A0H.1       PUBLIC        I2C_SCL
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  C:00CBH         PUBLIC        I2C_Delay5Us
+  D:00B8H         PUBLIC        IP
+  C:009EH         PUBLIC        I2C_Respon
+  C:0081H         PUBLIC        I2C_Start
+  C:00ABH         PUBLIC        _I2C_ByteRead
+  D:0098H         PUBLIC        SCON
+  C:00CFH         PUBLIC        Delay10ms
+  D:0088H         PUBLIC        TCON
+  C:000DH         PUBLIC        _I2C_SendByte
+  C:0090H         PUBLIC        _I2C_ByteWrite
+  C:0079H         PUBLIC        I2C_Stop
+  D:00C8H         PUBLIC        T2CON
+  C:00D8H         PUBLIC        _I2C_ImByteRead
+  B:00A0H.0       PUBLIC        I2C_SDA
+  D:00D0H         PUBLIC        PSW
+  C:004CH         PUBLIC        I2C_ReceiveByte
+  C:00C6H         SYMBOL        L?0026
+  -------         PROC          L?0025
+  -------         ENDPROC       L?0025
+  C:00C6H         SYMBOL        L?0026
+  -------         PROC          I2C_DELAY5US
+  C:00CBH         LINE#         31
+  C:00CBH         LINE#         32
+  C:00CBH         LINE#         33
+  C:00CCH         LINE#         34
+  C:00CDH         LINE#         35
+  C:00CEH         LINE#         36
+  -------         ENDPROC       I2C_DELAY5US
+  -------         PROC          DELAY10MS
+  -------         DO            
+  D:0007H         SYMBOL        i
+  D:0006H         SYMBOL        j
+  -------         ENDDO         
+  C:00CFH         LINE#         37
+  C:00CFH         LINE#         38
+  C:00CFH         LINE#         41
+  C:00D1H         LINE#         42
+  C:00D3H         LINE#         44
+  C:00D3H         LINE#         45
+  C:00D5H         LINE#         46
+  C:00D7H         LINE#         47
+  -------         ENDPROC       DELAY10MS
+  -------         PROC          I2C_START
+  C:0081H         LINE#         78
+  C:0081H         LINE#         79
+  C:0081H         LINE#         80
+  C:0083H         LINE#         81
+  C:0083H         LINE#         82
+  C:0083H         LINE#         83
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/26/2016  09:54:09  PAGE 4
+
+
+  C:0086H         LINE#         84
+  C:0088H         LINE#         85
+  C:008BH         LINE#         86
+  C:008DH         LINE#         87
+  -------         ENDPROC       I2C_START
+  -------         PROC          L?0028
+  -------         ENDPROC       L?0028
+  -------         PROC          I2C_STOP
+  C:0079H         LINE#         96
+  C:0079H         LINE#         97
+  C:0079H         LINE#         98
+  C:0079H         LINE#         99
+  C:0079H         LINE#         100
+  C:0079H         LINE#         101
+  C:007CH         LINE#         102
+  C:007EH         LINE#         103
+  -------         ENDPROC       I2C_STOP
+  -------         PROC          L?0027
+  -------         ENDPROC       L?0027
+  -------         PROC          _I2C_SENDBYTE
+  D:0007H         SYMBOL        dat
+  -------         DO            
+  D:0005H         SYMBOL        a
+  D:0006H         SYMBOL        b
+  -------         ENDDO         
+  C:000DH         LINE#         112
+  C:000DH         LINE#         113
+  C:000DH         LINE#         115
+  C:000FH         LINE#         116
+  C:0010H         LINE#         117
+  C:0010H         LINE#         118
+  C:001BH         LINE#         119
+  C:001FH         LINE#         120
+  C:001FH         LINE#         121
+  C:001FH         LINE#         122
+  C:0022H         LINE#         123
+  C:0024H         LINE#         124
+  C:0027H         LINE#         125
+  C:002BH         LINE#         126
+  C:002DH         LINE#         127
+  C:0030H         LINE#         128
+  C:0032H         LINE#         129
+  C:0035H         LINE#         130
+  C:0035H         LINE#         131
+  C:0036H         LINE#         132
+  C:003CH         LINE#         133
+  C:003CH         LINE#         134
+  C:003EH         LINE#         135
+  C:0041H         LINE#         136
+  C:0044H         LINE#         137
+  C:0044H         LINE#         138
+  C:0044H         LINE#         139
+  C:0046H         LINE#         140
+  C:0049H         LINE#         141
+  C:004BH         LINE#         142
+  -------         ENDPROC       _I2C_SENDBYTE
+  -------         PROC          I2C_RECEIVEBYTE
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/26/2016  09:54:09  PAGE 5
+
+
+  -------         DO            
+  D:0006H         SYMBOL        i
+  D:0007H         SYMBOL        dat
+  -------         ENDDO         
+  C:004CH         LINE#         150
+  C:004CH         LINE#         151
+  C:004CH         LINE#         152
+  C:004EH         LINE#         155
+  C:0050H         LINE#         156
+  C:0053H         LINE#         157
+  C:0054H         LINE#         158
+  C:0054H         LINE#         159
+  C:0056H         LINE#         160
+  C:0059H         LINE#         161
+  C:005DH         LINE#         162
+  C:0063H         LINE#         163
+  C:0066H         LINE#         164
+  C:0068H         LINE#         165
+  C:006BH         LINE#         166
+  C:006FH         LINE#         167
+  C:006FH         LINE#         168
+  -------         ENDPROC       I2C_RECEIVEBYTE
+  -------         PROC          I2C_RESPON
+  C:009EH         LINE#         176
+  C:009EH         LINE#         177
+  C:009EH         LINE#         178
+  C:009EH         LINE#         179
+  C:009EH         LINE#         180
+  C:009EH         LINE#         181
+  C:00A1H         LINE#         182
+  C:00A3H         LINE#         183
+  C:00A6H         LINE#         184
+  C:00A8H         LINE#         185
+  -------         ENDPROC       I2C_RESPON
+  -------         PROC          _I2C_BYTEWRITE
+  D:0007H         SYMBOL        dadr
+  D:0082H         SYMBOL        addr
+  D:0002H         SYMBOL        byte
+  C:0090H         LINE#         193
+  C:0090H         LINE#         194
+  C:0090H         LINE#         195
+  C:0090H         LINE#         196
+  C:0090H         LINE#         197
+  C:0093H         LINE#         198
+  C:0098H         LINE#         199
+  C:009BH         LINE#         200
+  -------         ENDPROC       _I2C_BYTEWRITE
+  -------         PROC          _I2C_BYTEREAD
+  D:0003H         SYMBOL        dadr
+  D:0082H         SYMBOL        addr
+  -------         DO            
+  D:0007H         SYMBOL        dat
+  -------         ENDDO         
+  C:00ABH         LINE#         208
+  C:00ADH         LINE#         209
+  C:00ADH         LINE#         211
+  C:00ADH         LINE#         212
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/26/2016  09:54:09  PAGE 6
+
+
+  C:00ADH         LINE#         213
+  C:00B0H         LINE#         214
+  C:00B3H         LINE#         215
+  C:00B4H         LINE#         217
+  C:00B4H         LINE#         218
+  C:00B7H         LINE#         219
+  C:00B7H         LINE#         220
+  -------         ENDPROC       _I2C_BYTEREAD
+  -------         PROC          _I2C_IMBYTEREAD
+  D:0007H         SYMBOL        dadr
+  -------         DO            
+  D:0007H         SYMBOL        dat
+  -------         ENDDO         
+  C:00D8H         LINE#         227
+  C:00D8H         LINE#         228
+  C:00D8H         LINE#         230
+  C:00DBH         LINE#         231
+  C:00DCH         LINE#         232
+  C:00DCH         LINE#         233
+  C:00DFH         LINE#         234
+  C:00DFH         LINE#         235
+  -------         ENDPROC       _I2C_IMBYTEREAD
+  -------         ENDMOD        EEPROM24C
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_RESPON?EEPROM24C
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_I2C_BYTEWRITE?EEPROM24C
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_I2C_BYTEREAD?EEPROM24C
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_I2C_IMBYTEREAD?EEPROM24C
+
+Program Size: data=10.0 xdata=0 code=225
+LINK/LOCATE RUN COMPLETE.  4 WARNING(S),  0 ERROR(S)
